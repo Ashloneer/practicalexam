@@ -11,8 +11,8 @@ app.get("/api/getter", (req, res) => {
 });
 
 app.post("/api/poster", (req, res) => {
-  const {salary} = req.body;
-  const netSalary = salary * 0.8;
+  const {salary,PF,bonus} = req.body;
+  const netSalary = (salary * (100-PF) /100)+ bonus;
   res.json({message: "Data recived Successfully", netSalary});
 });
 
